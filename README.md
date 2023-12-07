@@ -32,9 +32,13 @@ tag="123450c81a27491a867fad333a4e7dbd"
 ```bash
 domain="cloudflare.com"
 ```
-部署nginx-mtproxy 
+部署nginx-mtproxy 添加TAG
 ```bash
 docker run --name nginx-mtproxy -d -e tag="$tag" -e secret="$secret" -e domain="$domain" -e ip_white_list="OFF" -p 8080:80 -p 8443:443 ellermister/nginx-mtproxy:latest
+```
+部署nginx-mtproxy不添加TAG
+```bash
+docker run --name nginx-mtproxy -d -e secret="$secret" -e domain="$domain" -e ip_white_list="OFF" -p 8081:80 -p 8443:443 ellermister/nginx-mtproxy:latest
 ```
 ip_white_list 可选参数为:
 
